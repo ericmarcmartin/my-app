@@ -1,9 +1,8 @@
 import React from 'react'
-import { selectTodoById, ToggleTodo } from "../reducers/todosSlice";
+import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import '../../styles/TodoItem.css';
 import "../../styles/TodoItem.css"
-import { List } from 'antd';
 
 function TodoItem(props) {
     //    const todo =(state => selectTodoById(statem, props.itemId));
@@ -14,12 +13,16 @@ function TodoItem(props) {
         dispatch(ToggleTodo(props.itemId))
     }
 
-    const todoStatus = todo.done ? "done" : "";
+    function handleDelete() {
+        dispatch(DeleteTodo(props.itemId));
+    }
+
+    var todoStatus = todo.done ? "done" : "";
 
     return (
         <div className={`TodoiItem-todo-${todoStatus}`} onClick={handleClick}>
             <ul>
-                <li>{todo.text}<span class="close">&times;</span></li>
+                <li>{todo.text}<span className="close" onClick={handleDelete}>&times;</span></li>
             </ul>
         </div>
     )

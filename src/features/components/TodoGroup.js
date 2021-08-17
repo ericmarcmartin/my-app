@@ -6,7 +6,7 @@ import { useSelector } from "react-redux";
 function TodoGroup() {
     const todoIds = useSelector(selectTodoIds);
     
-    console.log(todoIds);
+    console.log("Group " + todoIds);
     return (
         <div>
             {
