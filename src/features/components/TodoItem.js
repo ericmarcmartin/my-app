@@ -1,9 +1,10 @@
 import React from 'react'
-import { initialTodoList } from '../../common/constants/constants'
-import { getTodoById } from '../../common/utils/utils'
+import { selectTodoById } from "../reducers/todosSlice";
+import { useSelector } from "react-redux";
 
 function TodoItem(props) {
-    const todo = getTodoById(initialTodoList, props.itemId);
+//    const todo =(state => selectTodoById(statem, props.itemId));
+    const todo = useSelector((state) => selectTodoById(state, props.itemId));
     return (
         <div>
             {todo.text}
@@ -11,4 +12,4 @@ function TodoItem(props) {
     )
 }
 
-export default TodoItem
+export default TodoItem;
