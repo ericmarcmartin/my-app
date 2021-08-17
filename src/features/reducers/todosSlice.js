@@ -7,7 +7,7 @@ const initialState = todosAdapter.getInitialState({
     entities: {
         1: {
             id: uuid(),
-            text: "testing todos",
+            text: "First to do item",
             done: false,
         },
     },

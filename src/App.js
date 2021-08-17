@@ -5,7 +5,7 @@ import TodoGroup from './features/components/TodoGroup';
 function App() {
   return (
     <div className="App">
-    <h1>Todo List</h1>
+    <h1>Hello, TodoList</h1>
       <TodoGroup/>
       <TodoForm/>
     </div>
