@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import '../../styles/TodoItem.css';
 
 function TodoItem(props) {
-    //    const todo =(state => selectTodoById(statem, props.itemId));
     const todo = useSelector((state) => selectTodoById(state, props.itemId));
     const dispatch = useDispatch();
 
@@ -26,7 +25,6 @@ function TodoItem(props) {
             </ul>
         </div>
     )
-
 }
 
 export default TodoItem;

@@ -20,12 +20,23 @@ ul {
 ul li {
     border: 1px solid #ddd;
     margin-top: -1px;
-    background-color: #f6f6f6;
+    background-color: white;
     padding: 12px;
     text-decoration: none;
     font-size: 18px;
     color: black;
     display: block;
+    position: relative;
+}
+
+input, button {
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    background-color: white;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
     position: relative;
 }
 
@@ -42,4 +53,11 @@ ul li:hover {
     transform: translate(0%, -50%);
 }
 
-.close:hover {background: #bbb;}
+.close:hover {
+    background: #bbb;
+}
+
+input {
+    width: max-content;
+    text-align: center;
+}
