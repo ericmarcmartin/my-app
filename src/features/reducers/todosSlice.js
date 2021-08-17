@@ -33,7 +33,9 @@ const todosSlice = createSlice({
         DeleteTodo(state, action){
             todosAdapter.removeOne(state, action.payload);
             return state;
+            
         },
+        
     },
 });
 

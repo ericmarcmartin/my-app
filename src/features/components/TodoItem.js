@@ -2,7 +2,6 @@ import React from 'react'
 import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import '../../styles/TodoItem.css';
-import "../../styles/TodoItem.css"
 
 function TodoItem(props) {
     //    const todo =(state => selectTodoById(statem, props.itemId));
@@ -13,8 +12,9 @@ function TodoItem(props) {
         dispatch(ToggleTodo(props.itemId))
     }
 
-    function handleDelete() {
+    function handleDelete(event) {
         dispatch(DeleteTodo(props.itemId));
+        event.stopPropagation();
     }
 
     var todoStatus = todo.done ? "done" : "";
