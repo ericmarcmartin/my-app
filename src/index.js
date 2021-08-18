@@ -44,7 +44,7 @@ import DoneList from './features/components/DoneList';
 
 
 const { Header, Sider, Content } = Layout;
-
+var mainName = 'To Do List';
 class Index extends React.Component {
   state = {
     collapsed: false,
@@ -61,7 +61,7 @@ class Index extends React.Component {
       <Router>
       <Layout >
         <Sider trigger={null} collapsible collapsed={this.state.collapsed}>
-          <div className="logo" >To Do List</div>
+          <div className="logo" >{mainName}</div>
           <Menu theme="dark" mode="inline" defaultSelectedKeys={['1']} >
             <Menu.Item key="1" icon={<UnorderedListOutlined />} className="menuItem">
               Manage Lists<Link to="/" />

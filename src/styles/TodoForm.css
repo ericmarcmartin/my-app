@@ -1,3 +1,21 @@
 .TodoForm {
     margin-top: 20px;
 }
+.input-new-item{
+    border: 1px solid #ddd;
+    margin-top: -1px;
+    background-color: white;
+    padding: 12px;
+    text-decoration: none;
+    font-size: 18px;
+    color: black;
+    display: block;
+    position: relative;
+    text-align: left;
+    width: 100%;
+}
+
+.add-button{
+    width: 100%;
+    margin-top: 15px;
+}

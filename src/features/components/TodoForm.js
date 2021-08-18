@@ -27,8 +27,10 @@ function TodoForm() {
 
     return (
         <div>
-            <Input placeholder="Input a new todo item" value={text} onChange={handleChange} />
-            <Button type="primary" onClick={addTodoItem}>Add</Button>
+           
+                <Input size="large" placeholder="Input a new to do item" value={text} onChange={handleChange} className="input-new-item" />
+                <Button type="primary" onClick={addTodoItem}  className="add-button">Add</Button>
+           
         </div>
     );
 }

@@ -18,16 +18,6 @@ function TodoList() {
     }, [])
 
     return (
-        // <React.Fragment>
-        //     <h2 className="todo-header">TodoList</h2>
-        //     <div className="todo-container">
-        //         {todoIds.map((id) => (
-        //             <Todo key={id} id={id} />
-        //         ))}
-        //     </div>
-        //     <TodoForm />
-        // </React.Fragment>
-
         <div>
             <TodoGroup />
             <TodoForm className="TodoForm" />
