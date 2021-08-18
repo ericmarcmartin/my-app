@@ -4,6 +4,12 @@
   margin: auto;
 }
 
+.container{
+  text-align: center;
+  width: 50%;
+  margin: auto;
+}
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;

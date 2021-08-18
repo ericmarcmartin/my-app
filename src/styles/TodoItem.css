@@ -29,17 +29,6 @@ ul li {
     position: relative;
 }
 
-input, button {
-    border: 1px solid #ddd;
-    margin-top: -1px;
-    background-color: white;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    position: relative;
-}
-
 ul li:hover {
     background-color: #eee;
 }
