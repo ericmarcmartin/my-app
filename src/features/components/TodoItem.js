@@ -1,5 +1,5 @@
 import React from 'react'
-import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
+import { selectTodoById, markTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTodo, updateToDo } from '../apis/todos';
 import '../../styles/TodoItem.css';
@@ -17,11 +17,12 @@ function TodoItem(props) {
 
     const onMark = () => {
         updateToDo(props.itemId, { done: !todo.done }).then(() => {
-            dispatch(ToggleTodo(props.itemId));
+            dispatch(markTodo(props.itemId));
         });
+        todoStatus = !todo.done;
     };
-
-    const todoStatus = todo.done ? "done" : "";
+    console.log(todo.done);
+    var todoStatus = todo.done ? "done" : "";
 
     return (
         <div className={`TodoiItem-todo-${todoStatus}`} onClick={onMark}>

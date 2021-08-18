@@ -23,6 +23,10 @@ const todosSlice = createSlice({
             return state;
         },
         markTodo(state, action) {
+            todosAdapter.updateOne(state, {
+                id: action.payload.id,
+                changes: !action.payload.done
+            })
             const todo = state.entities[action.payload];
             todo.done = !todo.done;
         },
@@ -35,7 +39,7 @@ const todosSlice = createSlice({
     },
 });
 
-export const { AddTodo, markTodo: ToggleTodo, DeleteTodo, addTodos } = todosSlice.actions;
+export const { AddTodo, markTodo, DeleteTodo, addTodos } = todosSlice.actions;
 export default todosSlice.reducer;
 export const {
     selectAll: selectTodos,
