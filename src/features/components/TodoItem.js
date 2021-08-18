@@ -2,6 +2,7 @@ import React from 'react'
 import { selectTodoById, markTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTodo, updateToDo } from '../apis/todos';
+import { notification } from 'antd';
 import '../../styles/TodoItem.css';
 
 function TodoItem(props) {
@@ -13,6 +14,7 @@ function TodoItem(props) {
             dispatch(DeleteTodo(props.itemId));
         });
         event.stopPropagation();
+        openNotification('deleted');
     }
 
     const onMark = () => {
@@ -20,9 +22,16 @@ function TodoItem(props) {
             dispatch(markTodo(props.itemId));
         });
         todoStatus = !todo.done;
+        openNotification('updated');
     };
     console.log(todo.done);
     var todoStatus = todo.done ? "done" : "";
+
+    const openNotification = (text) => {
+        notification.open({
+          message: 'List successfully ' + text
+        });
+      };
 
     return (
         <div className={`TodoiItem-todo-${todoStatus}`} onClick={onMark}>
