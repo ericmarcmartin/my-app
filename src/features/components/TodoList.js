@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { getTodos } from '../apis/todos';
-import { selectTodoIds, addTodos } from '../reducers/todosSlice';
-import TodoForm from './TodoForm'
-import { useSelector, useDispatch } from "react-redux";
+import { addTodos } from '../reducers/todosSlice';
+import { useDispatch } from "react-redux";
 import TodoGroup from './TodoGroup';
+import TodoForm from './TodoForm'
 
 
 function TodoList() {
-    const todoIds = useSelector(selectTodoIds);
     const dispatch = useDispatch()
 
     useEffect(() => {
@@ -15,7 +14,7 @@ function TodoList() {
             console.log("response.data:", response.data);
             dispatch(addTodos(response.data));
         })
-    }, [])
+    })
 
     return (
         <div>

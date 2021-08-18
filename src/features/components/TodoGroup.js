@@ -8,8 +8,8 @@ function TodoGroup() {
     return (
         <div>
             {
-               todoIds.map((id) => (
-                    <TodoItem key={id} itemId={id}/>
+                todoIds.map((id) => (
+                    <TodoItem key={id} itemId={id} />
                 ))
             }
         </div>

@@ -50,3 +50,9 @@ input {
     width: max-content;
     text-align: center;
 }
+
+.not-found{
+    margin: auto;
+    pointer-events: none;
+    display: block;
+}
