@@ -2,6 +2,7 @@ import React from 'react'
 import { selectTodoById, ToggleTodo, DeleteTodo } from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import '../../styles/TodoItem.css';
+import { updateToDo } from '../apis/todos';
 
 function TodoItem(props) {
     const todo = useSelector((state) => selectTodoById(state, props.itemId));
@@ -11,20 +12,33 @@ function TodoItem(props) {
         dispatch(ToggleTodo(props.itemId))
     }
 
-    function handleDelete(event) {
+    function onDelete(event) {
         dispatch(DeleteTodo(props.itemId));
         event.stopPropagation();
     }
 
-    var todoStatus = todo.done ? "done" : "";
+    const onMark = () => {
+        updateToDo(props.itemId, { done: !todo.done }).then(() => {
+            dispatch(ToggleTodo(props.itemId));
+        });
+    };
+
+        // const onMark = () => {
+    //     updateToDo(props.itemId, { done: !todo.done }).then((response) => {
+    //         dispatch(markTodo(props.itemId, updateToDo:response.data));
+    //     });
+    // };
+
+    const todoStatus = todo.done ? "done" : "";
 
     return (
-        <div className={`TodoiItem-todo-${todoStatus}`} onClick={handleClick}>
+        <div className={`TodoiItem-todo-${todoStatus}`} onClick={onMark}>
             <ul>
-                <li>{todo.text}<span className="close" onClick={handleDelete}>&times;</span></li>
+                <li>{todo.text}<span className="close" onClick={onDelete}>&times;</span></li>
             </ul>
         </div>
     )
+
 }
 
 export default TodoItem;
