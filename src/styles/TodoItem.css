@@ -66,7 +66,3 @@ input {
     pointer-events: none;
     display: block;
 }
-
-.edit-input {
-    overflow:scroll;
-}

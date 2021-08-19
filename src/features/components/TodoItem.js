@@ -1,8 +1,8 @@
 import React, { useState } from 'react'
-import { selectTodoById, markTodo, DeleteTodo } from "../reducers/todosSlice";
+import { selectTodoById, MarkTodo, DeleteTodo, UpdateTodoMessage } from "../reducers/todosSlice";
 import { useSelector, useDispatch } from "react-redux";
 import { removeTodo, updateToDo } from '../apis/todos';
-import { notification, Modal, Button, Form, Input, List } from 'antd';
+import { notification, Modal, Button, Form, Input } from 'antd';
 import '../../styles/TodoItem.css';
 
 import {
@@ -21,14 +21,6 @@ function TodoItem(props) {
         openNotification('deleted');
     }
 
-    const onMark = () => {
-        updateToDo(props.itemId, { done: !todo.done }).then(() => {
-            dispatch(markTodo(props.itemId));
-        });
-        todoStatus = !todo.done;
-        openNotification('updated');
-    };
-    console.log(todo.done);
     var todoStatus = todo.done ? "done" : "";
 
     const openNotification = (text) => {
@@ -43,13 +35,32 @@ function TodoItem(props) {
         setIsModalVisible(true);
     };
 
+    const onMark = () => {
+        updateToDo(props.itemId, { done: !todo.done }).then(() => {
+            dispatch(MarkTodo(props.itemId));
+        });
+        todoStatus = !todo.done;
+        openNotification('updated');
+    };
+
+    const [text, setText] = useState("");
+
     const handleOk = () => {
+        updateToDo(props.itemId, { text: text }).then(() => {
+            dispatch(UpdateTodoMessage(props.itemId));
+        });
+        
         setIsModalVisible(false);
+        openNotification('updated');
     };
 
     const handleCancel = () => {
         setIsModalVisible(false);
     };
+
+    function handleChange(event) {
+        setText(event.target.value);
+    }
 
     return (
         <div>
@@ -62,7 +73,7 @@ function TodoItem(props) {
             </div>
             <Form id="myForm"></Form>
             <Modal title="Basic Modal" visible={isModalVisible} onOk={handleOk} onCancel={handleCancel}>
-                <Input className="edit-input"></Input>
+                <Input className="edit-input" placeholder={todo.text} value={text} onChange={handleChange}></Input>
             </Modal>
         </div>
     )
