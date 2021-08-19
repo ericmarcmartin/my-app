@@ -17,21 +17,20 @@ function TodoForm() {
         createTodo(text).then((response) => {
             dispatch(AddTodo(response.data));
         });
-    
+
         openNotification();
         setText("");
     }
 
     const openNotification = () => {
         notification.open({
-          message: 'Successfully added message:',
-          description:
-          text,
-          onClick: () => {
-            console.log('Notification Clicked!');
-          },
+            message: 'Successfully added message:',
+            description: text,
+            onClick: () => {
+                console.log('Notification Clicked!');
+            },
         });
-      };
+    };
 
     return (
         <div>

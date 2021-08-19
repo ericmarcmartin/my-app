@@ -4,7 +4,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { removeTodo, updateToDo } from '../apis/todos';
 import { notification, Modal, Button, Form, Input } from 'antd';
 import '../../styles/TodoItem.css';
-
 import {
     EditOutlined
 } from '@ant-design/icons';
@@ -46,12 +45,16 @@ function TodoItem(props) {
     const [text, setText] = useState("");
 
     const handleOk = () => {
-        updateToDo(props.itemId, { text: text }).then(() => {
-            dispatch(UpdateTodoMessage(props.itemId));
-        });
-        
+        console.log(text)
+        if (text) {
+            updateToDo(props.itemId, { text: text }).then(() => {
+                dispatch(UpdateTodoMessage(props.itemId));
+            });
+
+            openNotification('updated');
+            window.location.reload();
+        }
         setIsModalVisible(false);
-        openNotification('updated');
     };
 
     const handleCancel = () => {

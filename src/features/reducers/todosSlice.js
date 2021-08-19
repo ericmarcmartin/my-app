@@ -26,7 +26,6 @@ const todosSlice = createSlice({
                 id: action.payload.id,
                 changes: action.payload.text,
             })
-            const todo = state.entities[action.payload];
         },
         DeleteTodo(state, action) {
             todosAdapter.removeOne(state, action.payload);
