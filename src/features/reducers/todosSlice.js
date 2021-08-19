@@ -3,16 +3,8 @@ import { createSelector } from "reselect";
 import { v4 as uuid } from "uuid";
 
 const todosAdapter = createEntityAdapter();
-const initialState = todosAdapter.getInitialState({
-    ids: ["1"],
-    entities: {
-        1: {
-            id: uuid(),
-            text: "First to do item",
-            done: false,
-        },
-    },
-});
+const initialState = todosAdapter.getInitialState();
+
 
 const todosSlice = createSlice({
     name: "todos",

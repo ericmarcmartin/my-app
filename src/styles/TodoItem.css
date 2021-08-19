@@ -2,6 +2,24 @@
     text-decoration: line-through;
 }
 
+.TodoiItem-todo-, .TodoiItem-todo-done {
+    border: 1px solid #ddd;
+    background-color: white;
+    padding: 12px;
+    font-size: 18px;
+    color: black;
+}
+
+.todo-list-delete, .todo-list-edit- {
+    margin-left: 10px;
+    width: 40px;
+    float: right;
+}
+
+.todo-list-edit-done {
+    display: none;
+}
+
 .TodoiItem-todo {
     color: red;
     font-size: x-large;
@@ -17,16 +35,8 @@ ul {
     margin: 0;
 }
 
-ul li {
-    border: 1px solid #ddd;
-    margin-top: -1px;
-    background-color: white;
-    padding: 12px;
-    text-decoration: none;
-    font-size: 18px;
-    color: black;
-    display: block;
-    position: relative;
+.lists-container {
+    width: 100%;
 }
 
 ul li:hover {
@@ -51,8 +61,12 @@ input {
     text-align: center;
 }
 
-.not-found{
+.not-found {
     margin: auto;
     pointer-events: none;
     display: block;
+}
+
+.edit-input {
+    overflow:scroll;
 }
